@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRender;
-    [SerializeField] Vector3 m;
-
 
     private void Awake() {
         playerControls = new PlayerControls();
@@ -29,7 +27,6 @@ public class PlayerController : MonoBehaviour
     //Better works with Input systems
     private void Update() {
         PlayerInput();
-        m = Input.mousePosition;
     }
 
     //Better works with Physics
