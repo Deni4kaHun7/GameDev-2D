@@ -10,10 +10,14 @@ public class PlayerController : MonoBehaviour
     //Store values incoming from our players input
     private Vector2 movement; 
     private Rigidbody2D rb;
+    private Animator myAnimator;
+    private SpriteRenderer mySpriteRenderer;
 
     private void Awake() {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable() {
@@ -27,11 +31,14 @@ public class PlayerController : MonoBehaviour
 
     //Better works with Physics
     private void FixedUpdate() {
+        AdjustPlayerFaceDirection();
         Move();
     }
 
     private void PlayerInput () {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
+        myAnimator.SetFloat("moveX", movement.x);
+        myAnimator.SetFloat("moveY", movement.y);
     }
 
     private void Move(){
@@ -40,5 +47,16 @@ public class PlayerController : MonoBehaviour
         put movementSpeed and time into brackets so floats calculate only once
         */
         rb.MovePosition(rb.position + movement * ( movementSpeed * Time.fixedDeltaTime));
+    }
+
+    private void AdjustPlayerFaceDirection(){
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.ScreenToWorldPoint(transform.position);
+
+        if(mousePosition.x < playerScreenPoint.x){
+            mySpriteRenderer.flipX = true;
+        } else{
+            mySpriteRenderer.flipX = false;
+        }
     }
 }
