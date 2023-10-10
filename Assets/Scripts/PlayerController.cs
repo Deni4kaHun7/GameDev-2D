@@ -11,13 +11,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement; 
     private Rigidbody2D rb;
     private Animator myAnimator;
-    private SpriteRenderer mySpriteRenderer;
+    private SpriteRenderer mySpriteRender;
+    [SerializeField] Vector3 m;
+
 
     private void Awake() {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRender = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable() {
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     //Better works with Input systems
     private void Update() {
         PlayerInput();
+        m = Input.mousePosition;
     }
 
     //Better works with Physics
@@ -51,12 +54,14 @@ public class PlayerController : MonoBehaviour
 
     private void AdjustPlayerFaceDirection(){
         Vector3 mousePosition = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.ScreenToWorldPoint(transform.position);
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
         if(mousePosition.x < playerScreenPoint.x){
-            mySpriteRenderer.flipX = true;
+            Debug.Log("dfs");
+            mySpriteRender.flipX = true;
         } else{
-            mySpriteRenderer.flipX = false;
+            mySpriteRender.flipX = false;
+            Debug.Log("faslse");
         }
     }
 }
