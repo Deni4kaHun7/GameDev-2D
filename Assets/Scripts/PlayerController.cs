@@ -54,11 +54,9 @@ public class PlayerController : MonoBehaviour
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
         if(mousePosition.x < playerScreenPoint.x){
-            Debug.Log("dfs");
             mySpriteRender.flipX = true;
         } else{
             mySpriteRender.flipX = false;
-            Debug.Log("faslse");
         }
     }
 }
