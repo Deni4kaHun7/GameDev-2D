@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float detectRange = 1f;
     [SerializeField] private float attackRange = .2f;
     
+    
     private bool canAttack = true;
     //enum is like a list of different states that enemy can have. Later I will use it to tell my enemy what to do if he has a specific type of State
     private enum State{
