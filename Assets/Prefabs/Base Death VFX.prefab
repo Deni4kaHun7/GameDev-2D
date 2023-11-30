@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 684413827318096967}
   - component: {fileID: 7969022626181228518}
   - component: {fileID: 3254440296978094795}
-  - component: {fileID: 1695840320079623234}
+  - component: {fileID: 2429779102386666473}
   m_Layer: 0
   m_Name: Base Death VFX
   m_TagString: Untagged
@@ -4887,7 +4887,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1695840320079623234
+--- !u!114 &2429779102386666473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4896,6 +4896,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6253561668475427270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f80c2130d2824f1a849f139e28c8330, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ad5d9727aa9d42738ee3f8af17d92d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
