@@ -9,6 +9,7 @@ public class AreaEntrance : MonoBehaviour
     private void Start() {
         if(portalName == SceneManagment.Instance.PortalToSpawn){
             PlayerController.Instance.transform.position = gameObject.transform.position;
+            CameraController.Instance.SetCinemachineFollowPlayer();
         }
     }
 }
